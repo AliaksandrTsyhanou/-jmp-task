@@ -5,11 +5,11 @@ import jmp.epam.by.ISimpleFigure;
 /**
  * Created by Alexandr on 29.11.2015.
  */
-public class cube implements ISimpleFigure{
+public class Cube implements ISimpleFigure{
 
     double side;
 
-    public cube(double side) {
+    public Cube(double side) {
         this.side = side;
     }
 
@@ -20,7 +20,7 @@ public class cube implements ISimpleFigure{
 
     @Override
     public String toString() {
-        return "cube{" +
+        return "Cube{" +
                 "side=" + side +
                 ";volume=" + getVolume() +
                 '}';

@@ -5,13 +5,13 @@ import jmp.epam.by.ISimpleFigure;
 /**
  * Created by Alexandr on 29.11.2015.
  */
-public class parallelepiped implements ISimpleFigure{
+public class Parallelepiped implements ISimpleFigure{
 
     double width;
     double length;
     double height;
 
-    public parallelepiped(double width, double length, double height) {
+    public Parallelepiped(double width, double length, double height) {
         this.width = width;
         this.length = length;
         this.height = height;
@@ -24,7 +24,7 @@ public class parallelepiped implements ISimpleFigure{
 
     @Override
     public String toString() {
-        return "parallelepiped{" +
+        return "Parallelepiped{" +
                 "width=" + width +
                 ", length=" + length +
                 ", height=" + height +
