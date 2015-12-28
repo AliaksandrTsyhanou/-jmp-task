@@ -1,21 +1,19 @@
 import by.epam.jmp.classloader.CustomClassLoader;
+import by.epam.jmp.classloader.Functionality;
 import by.epam.jmp.classloader.MainFunctionality;
 
-import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
 public class ClassLoaderMain {
 
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException,
-            InvocationTargetException, IllegalAccessException, InstantiationException,
-            URISyntaxException, MalformedURLException {
+    public static void main(String[] args) throws URISyntaxException, MalformedURLException,
+            ClassNotFoundException, IllegalAccessException, InstantiationException {
 
-        MainFunctionality mainFunctionality = new MainFunctionality();
+        Functionality mainFunctionality = new MainFunctionality();
         mainFunctionality.execute();
 
         String fileName = "newFunctionality.jar";
@@ -24,9 +22,8 @@ public class ClassLoaderMain {
         CustomClassLoader customClassLoader = new CustomClassLoader(urls);
         Class NewFunctionalityClass = customClassLoader.loadClass("by.epam.jmp.classloader.NewFunctionality");
 
-        Method method = NewFunctionalityClass.getDeclaredMethod("execute");
-        Object newFunctionality = NewFunctionalityClass.newInstance();
-        method.invoke(newFunctionality);
+        Functionality newFunctionality = (Functionality) NewFunctionalityClass.newInstance();
+        newFunctionality.execute();
 
     }
 }
