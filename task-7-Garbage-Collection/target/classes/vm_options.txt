@@ -1,0 +1,14 @@
+1)  Serial Collector
+-XX:+UseSerialGC -Xms6m -Xmx18m -Xmn2m -XX:PermSize20m -XX:MaxPermSize30m
+
+2) Parallel Collector
+-XX:+UseParallelGC -Xms3m -Xmx12m -Xmn1m -XX:PermSize20m -XX:MaxPermSize20m
+
+3) Parallel Old Collector
+-XX:+UseParallelOldGC -Xms9m -Xmx18m -Xmn3m -XX:PermSize20m -XX:MaxPermSize30m
+
+4) Concurrent Mark Sweep (CMS) Collector
+-XX:ParallelCMSThreads=4 -Xms6m -Xmx18m -Xmn2m -XX:PermSize20m -XX:MaxPermSize30m
+
+5) G1 Garbage Collector
+-XX:+UseG1GC -Xms4m -Xmx16m -Xmn2m -XX:PermSize12m -XX:MaxPermSize18m 
