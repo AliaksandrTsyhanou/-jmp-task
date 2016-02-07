@@ -19,6 +19,9 @@ public class MultithreadingMain {
 
         for (FutureTask<FactorialResult> futureTask : taskList) {
             executor.execute(futureTask);
+        }
+
+        for (FutureTask<FactorialResult> futureTask : taskList) {
             System.out.println("factorial = " + futureTask.get());
         }
 
