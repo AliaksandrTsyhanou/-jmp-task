@@ -23,17 +23,22 @@ public class HangManServiceTest {
     }
 
     @Test
-    public void testGuessLetter_True() throws Exception {
+    public void showMaskedWord() throws Exception {
+        assertEquals("*******", hangManService.getMaskWord());
+    }
+
+    @Test
+    public void youGuessLetter() throws Exception {
         assertTrue(hangManService.guessLetter(EXIST_LETTER));
     }
 
     @Test
-    public void testGuessLetter_False() throws Exception {
+    public void youDontGuessLetter() throws Exception {
         assertFalse(hangManService.guessLetter(NON_EXIST_LETTER));
     }
 
     @Test
-    public void testGuessLetter_GameOver() throws Exception {
+    public void youLoseWhenUsedAllAttemps() throws Exception {
         for (int numberAttemp = COUNT_ATTEMPS; numberAttemp > 0; numberAttemp--){
             assertNotGameOver(numberAttemp);
         }
@@ -51,7 +56,7 @@ public class HangManServiceTest {
     }
 
     @Test
-    public void testWinner() throws Exception {
+    public void youWinnerIfGuessedAllLetter() throws Exception {
         HangManService hangManService = new HangManService("K", 1);
         assertTrue(hangManService.guessLetter('K'));
         assertTrue(hangManService.isWinner());
@@ -59,7 +64,7 @@ public class HangManServiceTest {
     }
 
     @Test
-    public void testGuessLetter_Winner() throws Exception{
+    public void showGuessedLetterInMaskedWord() throws Exception{
         assertGuessLetter('c', "*******", false);
         assertGuessLetter('h', "H******", false);
         assertGuessLetter('H', "H******", false);
@@ -77,7 +82,7 @@ public class HangManServiceTest {
     }
 
     @Test
-    public void testRestartGame() throws Exception {
+    public void canRestartGame() throws Exception {
         hangManService.restartGame();
         assertFalse(hangManService.isGameOver());
         assertFalse(hangManService.isWinner());
